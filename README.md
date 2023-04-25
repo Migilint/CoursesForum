@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+React + Next.js - с нуля. TypeScript, Hooks, SSR и CSS Grid (11.2022) (На диске)
 
 ## Getting Started
 
