@@ -2,11 +2,17 @@
   "name": "top-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "nodemonConfig": {
+    "ignore": ["<node_intervals>/**"]
+  },
   "scripts": {
     "dev": "next dev",
+    "debug": "nodemon --inspect ./pages/_app.tsx ",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stylelint": "stylelint \"**/*.css\" --fix"
   },
   "dependencies": {
     "@types/node": "18.16.0",
@@ -20,5 +26,12 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "stylelint": "^15.6.0",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-order-config-standard": "^0.1.3"
   }
 }
