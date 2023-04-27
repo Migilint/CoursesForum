@@ -2,13 +2,9 @@
   "name": "top-app",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
-  "nodemonConfig": {
-    "ignore": ["<node_intervals>/**"]
-  },
   "scripts": {
     "dev": "next dev",
-    "debug": "nodemon --inspect ./pages/_app.tsx ",
+    "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -20,6 +16,7 @@
     "@types/react-dom": "18.2.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "8.1.0",
     "eslint-config-next": "13.3.1",
     "next": "13.3.1",
@@ -28,7 +25,6 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22",
     "stylelint": "^15.6.0",
     "stylelint-config-standard": "^33.0.0",
     "stylelint-order": "^6.0.3",
