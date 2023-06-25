@@ -2,7 +2,7 @@
 import styles from './Rating.module.css';
 import cn from "classnames";
 import {RatingProps} from "@/components/Rating/Rating.props";
-import {useEffect, useState, KeyboardEvent} from "react";
+import React, {useEffect, useState, KeyboardEvent, Fragment} from "react";
 import StarIcon from './star.svg';
 
 export const Rating = ({ isEditable = false, rating, setRating, ...props }: RatingProps): JSX.Element => {
@@ -15,6 +15,7 @@ export const Rating = ({ isEditable = false, rating, setRating, ...props }: Rati
     const constructRating = (currentRating: number) => {
             const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
                 return (
+                    <Fragment key={i}>
                     <span
                         className={cn(styles.star, {
                             [styles.filled]: i < currentRating,
@@ -29,6 +30,7 @@ export const Rating = ({ isEditable = false, rating, setRating, ...props }: Rati
                         onKeyDown={(e: KeyboardEvent<SVGAElement>) => isEditable && handleSpace(i + 1, e)}
                     />
                     </span>
+                    </Fragment>
                 );
             });
             setRatingArray(updatedArray);
