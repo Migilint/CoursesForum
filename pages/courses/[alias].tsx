@@ -4,7 +4,7 @@ import {withLayout} from "@/layout/Layout";
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 import axios from 'axios';
 import {MenuItem} from "@/interfaces/menu.interface";
-import {TopPageModel} from "@/interfaces/page.interface";
+import {TopLevelCategory, TopPageModel} from "@/interfaces/page.interface";
 import {ParsedUrlQuery} from "querystring";
 import {ProductModel} from "@/interfaces/product.interface";
 const firstCategory = 0;
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: Ge
 
 interface CourseProps extends Record<string, unknown> {
     menu:  MenuItem[],
-    firstCategory: number;
+    firstCategory: TopLevelCategory;
     page: TopPageModel;
     products: ProductModel[];
 }
