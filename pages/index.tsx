@@ -1,4 +1,4 @@
-import {Button, Htag, Ptag, Rating, Tag} from "@/components";
+import {Button, Htag, Input, Ptag, Rating, Tag, TextArea} from "@/components";
 import {useEffect, useState} from "react";
 import {withLayout} from "@/layout/Layout";
 import {GetStaticProps} from "next";
@@ -22,9 +22,9 @@ function Home({menu}:HomeProps ) {
           <Tag size='m' color='green'>Green</Tag>
           <Tag size='s' color='primary'>Color primary</Tag>
           <Rating rating={rating} isEditable setRating={setRating}/>
-          <ul>
-              {menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>))}
-          </ul>
+          <Input placeholder={"test"} />
+          <TextArea placeholder={"test"} />
+
       </>
   );
 }
