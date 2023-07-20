@@ -4,3 +4,11 @@ export interface IReviewForm {
     description: string;
     rating: number;
 }
+
+export interface IReviewSentResponse {
+    message: string;
+}
+
+export interface IReviewErrorResponse {
+    message: string;
+}
