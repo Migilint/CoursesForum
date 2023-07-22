@@ -5,6 +5,7 @@ import {Advantage, HhData, Htag, Product, Sort, Tag} from "@/components";
 import {TopLevelCategory} from "@/interfaces/page.interface";
 import {SortEnum} from "@/components/Sort/Sort.props";
 import {sortReducer} from "@/page-components/TopPageComponent/sort.reducer";
+import {useScrollY} from "@/hooks/useScrollY";
 
 export const TopPageComponent = ({ page, products, firstCategory}: TopPageComponentProps): JSX.Element => {
     const [{ products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
@@ -25,7 +26,7 @@ export const TopPageComponent = ({ page, products, firstCategory}: TopPageCompon
                 <Sort sort={sort} setSort={setSort} />
             </div>
             <div>
-                {sortedProducts && sortedProducts.map(p => (<Product key={p._id} product={p} />))}
+                {sortedProducts && sortedProducts.map(p => (<Product layout key={p._id} product={p} />))}
             </div>
             <div className={styles.hhTitle}>
                 <Htag tag={'h2'}>Вакансии - {page.category}</Htag>

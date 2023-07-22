@@ -4,10 +4,11 @@ import {ProductProps} from "@/components/Product/Product.props";
 import {Button, Card, Divider, Rating, Review, ReviewForm, Tag} from "@/components";
 import {declOfNum, priceRu} from "@/helpers/helpers";
 import Image from 'next/image';
-import {useRef, useState} from "react";
+import {ForwardedRef, forwardRef, useRef, useState} from "react";
 import Link from "next/link";
+import { motion } from 'framer-motion';
 
-export const Product = ({product, className, ...props}: ProductProps): JSX.Element => {
+export const Product = motion(forwardRef(({product, className, ...props}: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
     const reviewRef = useRef<HTMLDivElement>(null);
 
@@ -20,7 +21,7 @@ export const Product = ({product, className, ...props}: ProductProps): JSX.Eleme
     };
 
     return (
-        <div className={className} {...props}>
+        <div className={className} {...props} ref={ref}>
             <Card className={styles.product}>
                 <div className={styles.logo}>
                     <Image src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
@@ -91,4 +92,4 @@ export const Product = ({product, className, ...props}: ProductProps): JSX.Eleme
             </Card>
         </div>
     );
-};
+}));

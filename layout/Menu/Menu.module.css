@@ -15,6 +15,7 @@
 .firstLevel:hover{
     color: var(--primary);
 
+    list-style: none;
 }
 
 .firstLevelActive svg,
@@ -36,24 +37,23 @@
 }
 
 .secondBlock {
-    margin-top: 12px;
+    margin-top: 15px;
     margin-left: 12px;
     padding-left: 32px;
+
+    list-style: none;
 
     border-left: 1px solid #DFDFDF;
 }
 
 .secondLevelBlock {
-    display: none;
+    overflow: hidden;
+
+    padding: 0;
+
+    list-style: none;
 }
 
-.secondLevelBlockOpened {
-    display: block;
-}
-
-.secondLevelBlockOpened:last-child {
-    margin-bottom: 20px;
-}
 
 .secondLevelActive,
 .secondLevel:hover {
