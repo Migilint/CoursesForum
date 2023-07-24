@@ -69,6 +69,7 @@
 
     .rating {
         grid-column: start / end;
+        margin-bottom: 10px;
     }
 
     .title {
@@ -79,5 +80,12 @@
 @media screen and (max-width: 640px) {
     .reviewForm {
         grid-template-columns: [start] 1fr [end];
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rating {
+        display: grid;
+        grid-template-columns: 1fr auto;
     }
 }

@@ -3,7 +3,7 @@
     grid-template-columns:
 		[start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
     margin-top: 30px;
-    padding: 30px;
+    padding: 20px;
 }
 
 .logo {
@@ -218,6 +218,9 @@
     .actions {
         grid-area: actions;
     }
+    .characteristics {
+        padding-right: 0;
+    }
 
 }
 
@@ -267,6 +270,17 @@
         margin-bottom: 0;
         margin-top: 10px;
     }
+}
+@media screen and (max-width: 360px) {
+    .reviewButton {
+        margin-left: 0;
+    }
+    .actions {
+        display: grid;
+        grid-template-rows: auto auto;
+        gap: 10px;
+    }
+
 }
 
 

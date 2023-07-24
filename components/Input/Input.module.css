@@ -28,6 +28,10 @@
     position: relative;
 }
 
+.inputWrapper input {
+    width: 100%;
+}
+
 .errorMessage {
     position: absolute;
     bottom: -20px;

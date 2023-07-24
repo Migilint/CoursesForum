@@ -40,7 +40,7 @@ export const Product = motion(forwardRef(({
 
     return (
         <div className={className} {...props} ref={ref}>
-            <Card className={styles.product}>
+            <Card className={styles.product} position={isReviewOpened ? 'top' : 'default'}>
                 <div className={styles.logo}>
                     <Image src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
                            alt={product.title}
@@ -103,7 +103,7 @@ export const Product = motion(forwardRef(({
                 initial={'hidden'}
                 animate={isReviewOpened ? 'visible' : 'hidden'}
             >
-                <Card color={'blue'} className={cn(styles.review, styles.reviews)} ref={reviewRef}>
+                <Card color={'blue'} position={isReviewOpened ? 'bottom' : 'default'} className={cn(styles.review, styles.reviews)} ref={reviewRef}>
                     {product.reviews.map(r => (
                         <div key={r._id}>
                             <Review review={r}/>

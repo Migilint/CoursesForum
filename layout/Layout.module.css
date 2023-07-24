@@ -12,7 +12,6 @@
 
 .header {
     grid-area: header;
-    display: none;
 }
 
 .body {
@@ -30,20 +29,18 @@
 @media (max-width: 765px) {
 
     .wrapper {
+        gap: 10px;
         grid-template-columns: minmax(320px, 1fr);
         grid-template-areas:
     "header"
     "body"
-    "footer"
+    "footer";
     }
 
     .sidebar {
         display: none !important;
     }
 
-    .header {
-        display: block;
-    }
     .body {
         padding: 15px;
     }
