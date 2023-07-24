@@ -10,7 +10,6 @@
     border-radius: 5px;
 
     font-size: 14px;
-    transition: all 0.2s;
 }
 
 .primary {
@@ -36,12 +35,14 @@
 .arrow {
     display: inline-block;
 
+    transition: all 0.2s;
+
     margin-left: 10px;
 }
 
 .down {
-    transform: rotate(90deg);
     transition: all 0.2s;
+    transform: rotate(90deg);
 }
 
 .primary svg,
