@@ -4,8 +4,8 @@ import {ReviewFormProps} from "@/components/ReviewForm/ReviewForm.props";
 import {Button, Input, Rating, TextArea} from "@/components";
 import CloseIcon from './close.svg';
 import {useForm, Controller} from "react-hook-form";
-import {IReviewErrorResponse, IReviewForm, IReviewSentResponse} from "@/components/ReviewForm/ReviewForm.interface";
-import {useRef, useState} from "react";
+import {IReviewForm, IReviewSentResponse} from "@/components/ReviewForm/ReviewForm.interface";
+import {useState} from "react";
 import axios, {AxiosError} from "axios";
 import {API} from "@/helpers/api";
 

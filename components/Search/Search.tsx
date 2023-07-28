@@ -3,7 +3,7 @@ import styles from './Search.module.css';
 import {SearchProps} from "@/components/Search/Search.props";
 import cn from "classnames";
 import {Button, Input} from "@/components";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import SearchIcon from "./search.svg";
 import {useRouter} from "next/router";
 
@@ -16,7 +16,7 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
             query: {
                 q: search
             }
-        });
+        }).then(() => '');
     };
 
 

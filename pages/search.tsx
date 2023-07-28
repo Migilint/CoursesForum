@@ -1,10 +1,8 @@
 import {withLayout} from "@/layout/Layout";
-import {GetStaticPaths, GetStaticProps} from "next";
+import {GetStaticProps} from "next";
 import axios from 'axios';
 import {MenuItem} from "@/interfaces/menu.interface";
-import {firstLevelMenu} from "@/helpers/helpers";
 import {TopLevelCategory} from "@/interfaces/page.interface";
-import TopPage from "@/pages/[type]/[alias]";
 import {API} from "@/helpers/api";
 
 

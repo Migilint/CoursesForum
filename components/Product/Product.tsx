@@ -3,7 +3,6 @@ import cn from "classnames";
 import {ProductProps} from "@/components/Product/Product.props";
 import {Button, Card, Divider, Rating, Review, ReviewForm, Tag} from "@/components";
 import {declOfNum, priceRu} from "@/helpers/helpers";
-import Image from 'next/image';
 import {ForwardedRef, forwardRef, useRef, useState} from "react";
 import Link from "next/link";
 import {motion} from 'framer-motion';
@@ -43,7 +42,7 @@ export const Product = motion(forwardRef(({
         <div className={className} {...props} ref={ref}>
             <Card className={styles.product} position={isReviewOpened ? 'top' : 'default'}>
                 <div className={styles.logo}>
-                    <Image src={/^https?:\/\//i.test(product.image) ? product.image : process.env.NEXT_PUBLIC_DOMAIN + product.image}
+                    <img src={/^https?:\/\//i.test(product.image) ? product.image : process.env.NEXT_PUBLIC_DOMAIN + product.image}
                            alt={product.title}
                            width={70}
                            height={70}/>

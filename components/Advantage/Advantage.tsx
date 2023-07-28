@@ -1,9 +1,7 @@
 
 import styles from './Advantage.module.css';
 import {AdvantageProps} from "@/components/Advantage/Advantage.props";
-import cn from "classnames";
 import CheckMarkIcon from "./checkMark.svg";
-import {Htag} from "@/components";
 import React from "react";
 
 export const Advantage = ({ advantages }: AdvantageProps): JSX.Element => {

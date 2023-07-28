@@ -1,11 +1,8 @@
 
 import styles from './Up.module.css';
-import ArrowUpIcon from './arrowUp.svg';
-import cn from "classnames";
 import {useScrollY} from "@/hooks/useScrollY";
 import {motion, useAnimation} from "framer-motion";
 import {useEffect} from "react";
-import {Button} from "@/components";
 import {ButtonIcon} from "@/components/ButtonIcon/ButtonIcon";
 
 
@@ -16,7 +13,7 @@ export const Up = (): JSX.Element => {
     useEffect(() => {
         controls.start({
             opacity: y / (document.body.scrollHeight - 885)
-        });
+        }).then(() => '');
 }, [y, controls]);
 
     const scrollToTop = () => {
@@ -32,7 +29,7 @@ export const Up = (): JSX.Element => {
             animate={controls}
             initial={{opacity: 0}}
         >
-            <ButtonIcon appearance={'primary'} icon={'up'} onClick={scrollToTop}/>
+            <ButtonIcon appearance={'primary'} icon={'up'} aria-label={"Наверх"} onClick={scrollToTop}/>
         </motion.div>
     );
 };

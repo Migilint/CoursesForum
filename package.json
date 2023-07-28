@@ -5,9 +5,11 @@
   "scripts": {
     "prepare": "husky install",
     "dev": "next dev",
+    "export": "next export",
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
+    "prodStart": "cross-env NODE_ENV=production npm start",
     "lint": "next lint",
     "stylelint": "stylelint \"**/*.css\" --fix"
   },
