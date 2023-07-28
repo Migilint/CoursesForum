@@ -8,8 +8,18 @@
 	],
 	"rules": {
 		"indentation": [
-			"tab"
+			"tab",
+			{}
 		],
-		"color-hex-case": "upper"
+		"color-hex-case": "upper",
+		"selector-class-pattern": "^.*$",
+		"declaration-block-no-redundant-longhand-properties": [
+			true,
+			{
+				"ignoreShorthands": [
+					"/grid/"
+				]
+			}
+		]
 	}
 }

@@ -1,20 +1,23 @@
 .up {
-    height: 40px;
-    width: 40px;
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
 
-    border-radius: 10px;
-    background: var(--primary);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
-    bottom: 30px;
-    right: 30px;
-    position: fixed;
-    cursor: pointer;
-    border: none;
+	width: 40px;
+	height: 40px;
 
-    filter: drop-shadow(0px 0px 15px var(--black-light));
+	cursor: pointer;
+
+	border: none;
+
+	border-radius: 10px;
+	background: var(--primary);
+	box-shadow: 0 4px 4px 0 rgb(0 0 0 / 5%);
+
+	filter: drop-shadow(0 0 15px var(--black-light));
 }
 
 .up:hover {
-    background-color: var(--primary-hover);
+	background-color: var(--primary-hover);
 }
 
