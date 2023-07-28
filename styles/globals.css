@@ -18,18 +18,30 @@ a {
 	box-sizing: border-box;
 }
 
+ul {
+	padding-inline-start: 0;
+}
+
+.visuallyHidden {
+	position: absolute;
+
+	overflow: hidden;
+
+	width: 0;
+	height: 0;
+}
+
 :root {
-	--black-light: rgba(59, 67, 78, 0.50);
 	--black: #3B434E;
 	--gray-light: #EBEBEB;
 	--gray: #A4A4A4;
 	--gray-dark: #6C7077;
 	--white: white;
-	--primary: #7453f3;
+	--primary: #7351F5;
 	--primary-hover: #6344DF;
-	--red: #FC836D;
 	--red-light: #FEA291;
-	--green: #137a4f;
+	--red: #FC836D;
+	--green: #007B48;
 	--green-light: #C8F8E4;
 	--font-family: 'Noto Sans', sans-serif;
 }

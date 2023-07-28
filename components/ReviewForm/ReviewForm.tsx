@@ -10,14 +10,14 @@ import axios, {AxiosError} from "axios";
 import {API} from "@/helpers/api";
 
 export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Element => {
-    const {register, control, handleSubmit, formState: {errors}, reset} = useForm<IReviewForm>();
+    const {register, control, handleSubmit, formState: {errors}, reset, clearErrors} = useForm<IReviewForm>();
 
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
     const [isError, setIsError] = useState<string>();
 
     const onSubmit = async (formData: IReviewForm) => {
         try {
-            const { data } = await axios.post<IReviewSentResponse>(API.review.createDemo, {...formData, productId });
+            const {data} = await axios.post<IReviewSentResponse>(API.review.createDemo, {...formData, productId});
             if (data.message) {
                 setIsSuccess(true);
                 reset();
@@ -39,12 +39,14 @@ export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): J
                     {...register('name', {required: {value: true, message: 'Заполните имя'}})}
                     placeholder={'Имя'}
                     error={errors.name}
+                    aria-invalid={!!errors.name}
                 />
                 <Input
                     {...register('title', {required: {value: true, message: 'Заполните заголовок'}})}
                     placeholder={'Заголовок отзыва'}
                     className={styles.title}
                     error={errors.title}
+                    aria-invalid={!!errors.title}
                 />
                 <div className={styles.rating}>
                     <span>Оценка:</span>
@@ -74,24 +76,42 @@ export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): J
                     placeholder={'Текст отзыва'}
                     className={styles.description}
                     error={errors.description}
+                    aria-label={"Текст отзыва"}
+                    aria-invalid={!!errors.description}
                 />
                 <div className={styles.submit}>
-                    <Button appearance={'primary'}>Отправить</Button>
+                    <Button appearance={'primary'} onClick={() => clearErrors()}>Отправить</Button>
                     <span
-                        className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
+                        className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку.</span>
                 </div>
             </div>
-            {isSuccess && <div className={cn(styles.success, styles.panel) }>
-                <div className={styles.successTitle}>Ваш отзыв отправлен</div>
-                <div>
-                    Спасибо, ваш отзыв будет опубликован после проверки
+            {isSuccess && <div className={cn(styles.success, styles.panel)}>
+                <div role="alert">
+                    <div className={styles.successTitle}>Ваш отзыв отправлен.</div>
+                    <div>
+                        Спасибо, ваш отзыв будет опубликован после проверки.
+                    </div>
                 </div>
-                <CloseIcon className={styles.close} onClick={() => setIsSuccess(false)}/>
+                <button
+                    className={styles.close}
+                    onClick={() => setIsSuccess(false)}
+                    aria-label={"Закрыть оповещение"}
+                >
+                    <CloseIcon/>
+                </button>
             </div>}
             {isError && <div className={cn(styles.error, styles.panel)}>
-                <div>Что-то пошло не так, попробуйте обновить страницу</div>
-                <div>{isError}</div>
-                <CloseIcon className={styles.close} onClick={() => setIsError(undefined)}/>
+                <div role={"alert"}>
+                    <div>Что-то пошло не так, попробуйте обновить страницу.</div>
+                    <div>{isError}</div>
+                </div>
+                <button
+                    className={styles.close}
+                    onClick={() => setIsError(undefined)}
+                    aria-label={"Закрыть оповещение"}
+                >
+                    <CloseIcon/>
+                </button>
             </div>}
         </form>
     );
